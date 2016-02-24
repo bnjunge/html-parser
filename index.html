@@ -1,34 +1,25 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>PHP DOM HTML Parser by shinbonlin</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>PHP DOM HTML Parser</h1>
-        <p>Similar with PHP Simple Dom library, faster, more effective.</p>
+    <section class="page-header">
+      <h1 class="project-name">PHP DOM HTML Parser</h1>
+      <h2 class="project-tagline">Similar with PHP Simple Dom library, faster, more effective.</h2>
+      <a href="https://github.com/shinbonlin/html-parser" class="btn">View on GitHub</a>
+      <a href="https://github.com/shinbonlin/html-parser/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/shinbonlin/html-parser/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <p class="view"><a href="https://github.com/shinbonlin/html-parser">View the Project on GitHub <small>shinbonlin/html-parser</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/shinbonlin/html-parser/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/shinbonlin/html-parser/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/shinbonlin/html-parser">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <p><strong>PHP DOM HTML Parser</strong> uses built-in <a href="http://php.net/manual/en/book.dom.php">PHP DOM extension</a> to process your requests, after testing, it is 10x faster than <a href="http://simplehtmldom.sourceforge.net/">PHP Simple HTML DOM Parser</a></p>
+    <section class="main-content">
+      <p><strong>PHP DOM HTML Parser</strong> uses built-in <a href="http://php.net/manual/en/book.dom.php">PHP DOM extension</a> to process your requests, after testing, it is 10x faster than <a href="http://simplehtmldom.sourceforge.net/">PHP Simple HTML DOM Parser</a></p>
 
 <p>PHP DOM extension requires the libxml PHP extension. This means that passing in --enable-libxml is also required, although this is implicitly accomplished because libxml is enabled by default.</p>
 
@@ -260,16 +251,34 @@ $str = $html_dom-&gt;save();
 <p>Dumps the internal DOM tree back into a file</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>save(<span class="pl-s"><span class="pl-pds">'</span>result.htm<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<hr>
+
+<h2>
+<a id="extension" class="anchor" href="#extension" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Extension</h2>
+
+<p>You can use PHP DOM extension as the following code:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span><span class="pl-smi">node</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span><span class="pl-smi">node</span><span class="pl-k">-&gt;</span><span class="pl-smi">childNodes</span></span>
+<span class="pl-s1"><span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span><span class="pl-smi">node</span><span class="pl-k">-&gt;</span><span class="pl-smi">parentNode</span></span>
+<span class="pl-s1"><span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span><span class="pl-smi">node</span><span class="pl-k">-&gt;</span><span class="pl-smi">firstChild</span></span>
+<span class="pl-s1"><span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span><span class="pl-smi">node</span><span class="pl-k">-&gt;</span><span class="pl-smi">lastChild</span></span></pre></div>
+
+<p>For more information, please visit <a href="http://php.net/manual/en/book.dom.php">http://php.net/manual/en/book.dom.php</a></p>
 </div>
 </div>
 </div>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/shinbonlin">shinbonlin</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/shinbonlin/html-parser">PHP DOM HTML Parser</a> is maintained by <a href="https://github.com/shinbonlin">shinbonlin</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+
+    </section>
+
+  
   </body>
 </html>

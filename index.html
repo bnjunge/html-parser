@@ -35,6 +35,8 @@
 <h1>
 <a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h1>
 
+<hr>
+
 <h2>
 <a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
 
@@ -49,6 +51,8 @@
 <p>comment out the Namespace in line:2, if you don't use it</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$html_dom</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">ParserDom</span>(<span class="pl-smi">$html</span>);</span></pre></div>
+
+<hr>
 
 <h2>
 <a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic usage</h2>
@@ -113,15 +117,15 @@
 <h2>
 <a id="descendant-seletors" class="anchor" href="#descendant-seletors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Descendant Seletors</h2>
 
-<p>Find all </p> in <ul> 
+<p>Find all <code>&lt;li&gt;</code> in <code>&lt;ul&gt;</code></p>
 
-</ul><div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$es</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>ul li<span class="pl-pds">'</span></span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$es</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>ul li<span class="pl-pds">'</span></span>);</span></pre></div>
 
 <p>Find Nested </p><div> tags
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$es</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>div div div<span class="pl-pds">'</span></span>); </span></pre></div>
 
-<p>Find all </p> in <table> which class=hello
+<p>Find all <code>&lt;td&gt;</code> in <code>&lt;table&gt;</code> which class=hello</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$es</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>table.hello td<span class="pl-pds">'</span></span>);</span></pre></div>
 
@@ -129,22 +133,43 @@
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$es</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>table td[align=center]<span class="pl-pds">'</span></span>);</span></pre></div>
 
+<hr>
+
+<h2>
+<a id="modify-html" class="anchor" href="#modify-html" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Modify HTML</h2>
+
+<p>Modify class attribute</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>div<span class="pl-pds">'</span></span>, <span class="pl-c1">1</span>)<span class="pl-k">-&gt;</span><span class="pl-smi">class</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>;</span></pre></div>
+
+<p>Modify inner text (HTML is allowed)</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>div[id=hello]<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>)<span class="pl-k">-&gt;</span><span class="pl-smi">innertext</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>foo<span class="pl-pds">'</span></span>;</span></pre></div>
+
+<p>Modify outer HTML</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">// this is remove `&lt;a&gt;` tag and replace with `&lt;h1&gt;` tag</span></span>
+<span class="pl-s1"><span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>)<span class="pl-k">-&gt;</span><span class="pl-smi">outertext</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;h1&gt;Title Link&lt;/h1&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span></pre></div>
+
+<hr>
+
 <h2>
 <a id="nested-seletors" class="anchor" href="#nested-seletors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Nested Seletors</h2>
 
-<p>Find all </p> in <ul>
+<p>Find all <code>&lt;li&gt;</code> in <code>&lt;ul&gt;</code></p>
 
-</ul>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">foreach</span>(<span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>ul<span class="pl-pds">'</span></span>) <span class="pl-k">as</span> <span class="pl-smi">$ul</span>) {</span>
 <span class="pl-s1">       <span class="pl-k">foreach</span>(<span class="pl-smi">$ul</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>li<span class="pl-pds">'</span></span>) <span class="pl-k">as</span> <span class="pl-smi">$li</span>) {</span>
 <span class="pl-s1">             <span class="pl-c">// do something...</span></span>
 <span class="pl-s1">       }</span>
 <span class="pl-s1">}</span></pre></div>
 
-<p>Find first </p> in first <ul> 
+<p>Find first <code>&lt;li&gt;</code> in first <code>&lt;ul&gt;</code> </p>
 
-</ul>
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$e</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>ul<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>)<span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>li<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>);</span></pre></div>
+
+<hr>
 
 <h2>
 <a id="attribute-selectors" class="anchor" href="#attribute-selectors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Attribute Selectors</h2>
@@ -160,6 +185,34 @@
 [attribute$=value] | Matches elements that have the specified attribute and it ends with a certain value.
 [attribute*=value] | Matches elements that have the specified attribute and it contains a certain value.</p>
 
+<hr>
+
+<h2>
+<a id="magic-attribute" class="anchor" href="#magic-attribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Magic Attribute</h2>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">// Example HTML: &lt;div class="blue-color"&gt;foo &lt;b&gt;bar&lt;/b&gt;&lt;/div&gt; </span></span>
+<span class="pl-s1"><span class="pl-smi">$e</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">"</span>div<span class="pl-pds">"</span></span>, <span class="pl-c1">0</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">outertext</span>; <span class="pl-c">// Returns: "&lt;div class="blue-color"&gt;foo &lt;b&gt;bar&lt;/b&gt;&lt;/div&gt;"</span></span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">innertext</span>; <span class="pl-c">// Returns: "foo &lt;b&gt;bar&lt;/b&gt;"</span></span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">plaintext</span>; <span class="pl-c">// Returns: "foo bar"</span></span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">class</span>; <span class="pl-c">// Returns: "blue-color" </span></span>
+<span class="pl-s1"></span></pre></div>
+
+<p>Note: This library doesn't support $e-&gt;tag of PHP Simple Dom</p>
+
+<h2>
+<a id="attribute-name--usage" class="anchor" href="#attribute-name--usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Attribute Name | Usage</h2>
+
+<p>$e-&gt;outertext | Read or write the outer HTML text of element.
+$e-&gt;innertext | Read or write the inner HTML text of element.
+$e-&gt;plaintext | Read or write the plain text of element.
+$e-&gt;src | Read "src" attribute of element.
+$e-&gt;class | Read "class" attribute of element.
+$e-&gt;href | Read "href" attribute of element.</p>
+
+<p>Except outertext, innertext and plaintext, you can use $e-&gt;attribute_name to read attribute of element.</p>
+
 <h2>
 <a id="faq" class="anchor" href="#faq" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FAQ</h2>
 
@@ -173,7 +226,6 @@
 <p>Dumps the internal DOM tree back into a file</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>save(<span class="pl-s"><span class="pl-pds">'</span>result.htm<span class="pl-pds">'</span></span>);</span></pre></div>
-</table>
 </div>
       </section>
       <footer>

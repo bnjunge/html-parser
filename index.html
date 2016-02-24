@@ -32,11 +32,11 @@
 
 <p>PHP DOM extension requires the libxml PHP extension. This means that passing in --enable-libxml is also required, although this is implicitly accomplished because libxml is enabled by default.</p>
 
-<h2>
-<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h1>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h1>
 
-<h3>
-<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h3>
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$html</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;div&gt;</span></span>
 <span class="pl-s1"><span class="pl-s">test this library! &lt;a href="https://github.com/shinbonlin"&gt;PHP DOM HTML Parser&lt;/a&gt;</span></span>
@@ -50,8 +50,8 @@
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$html_dom</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">ParserDom</span>(<span class="pl-smi">$html</span>);</span></pre></div>
 
-<h3>
-<a id="get-html-elements" class="anchor" href="#get-html-elements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get HTML elements</h3>
+<h2>
+<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic usage</h2>
 
 <p>Find all images</p>
 
@@ -79,14 +79,89 @@
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$ret</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-k">-</span><span class="pl-c1">1</span>); </span></pre></div>
 
-<p>Find all </p><div> with the id attribute
+<p>Find all <code>&lt;div&gt;</code> with the id attribute</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$ret</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>div[id]<span class="pl-pds">'</span></span>);</span></pre></div>
 
-<p>Find all </p>
-<div> which attribute id=foo
+<p>Find all <code>&lt;div&gt;</code> which attribute id=foo</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$ret</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>div[id=foo]<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<h2>
+<a id="advanced-usage" class="anchor" href="#advanced-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Advanced usage</h2>
+
+<p>Find all element which id=foo</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$ret</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>#foo<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>Find all element which class=foo</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$ret</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>.foo<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>Find all HTML tags with the id attribute</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$ret</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>*[id]<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>Find all anchors and images</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$ret</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>a, img<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>Find all anchors and images with the "title" attribute</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$ret</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>a[title], img[title]<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<h2>
+<a id="descendant-seletors" class="anchor" href="#descendant-seletors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Descendant Seletors</h2>
+
+<p>Find all </p> in <ul> 
+
+</ul><div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$es</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>ul li<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>Find Nested </p><div> tags
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$es</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>div div div<span class="pl-pds">'</span></span>); </span></pre></div>
+
+<p>Find all </p> in <table> which class=hello
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$es</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>table.hello td<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>Find all td tags with attribite align=center in table tags </p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$es</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>table td[align=center]<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<h2>
+<a id="nested-seletors" class="anchor" href="#nested-seletors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Nested Seletors</h2>
+
+<p>Find all </p> in <ul>
+
+</ul>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">foreach</span>(<span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>ul<span class="pl-pds">'</span></span>) <span class="pl-k">as</span> <span class="pl-smi">$ul</span>) {</span>
+<span class="pl-s1">       <span class="pl-k">foreach</span>(<span class="pl-smi">$ul</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>li<span class="pl-pds">'</span></span>) <span class="pl-k">as</span> <span class="pl-smi">$li</span>) {</span>
+<span class="pl-s1">             <span class="pl-c">// do something...</span></span>
+<span class="pl-s1">       }</span>
+<span class="pl-s1">}</span></pre></div>
+
+<p>Find first </p> in first <ul> 
+
+</ul>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$e</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>ul<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>)<span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>li<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>);</span></pre></div>
+
+<h2>
+<a id="attribute-selectors" class="anchor" href="#attribute-selectors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Attribute Selectors</h2>
+
+<h2>
+<a id="filter--description" class="anchor" href="#filter--description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Filter | Description</h2>
+
+<p>[attribute] | Matches elements that have the specified attribute.
+[!attribute] | Matches elements that don't have the specified attribute.
+[attribute=value] | Matches elements that have the specified attribute with a certain value.
+[attribute!=value] | Matches elements that don't have the specified attribute with a certain value.
+[attribute^=value] | Matches elements that have the specified attribute and it starts with a certain value.
+[attribute$=value] | Matches elements that have the specified attribute and it ends with a certain value.
+[attribute*=value] | Matches elements that have the specified attribute and it contains a certain value.</p>
+
+<h2>
+<a id="faq" class="anchor" href="#faq" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FAQ</h2>
 
 <h3>
 <a id="how-to-dump-contents-of-dom-object" class="anchor" href="#how-to-dump-contents-of-dom-object" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to dump contents of DOM object?</h3>
@@ -98,7 +173,7 @@
 <p>Dumps the internal DOM tree back into a file</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>save(<span class="pl-s"><span class="pl-pds">'</span>result.htm<span class="pl-pds">'</span></span>);</span></pre></div>
-</div>
+</table>
 </div>
       </section>
       <footer>

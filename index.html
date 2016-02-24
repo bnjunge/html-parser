@@ -62,10 +62,31 @@
 
 <p>Find all links </p>
 
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">foreach</span>(<span class="pl-smi">$html</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>) <span class="pl-k">as</span> <span class="pl-smi">$element</span>) {</span>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">foreach</span>(<span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>) <span class="pl-k">as</span> <span class="pl-smi">$element</span>) {</span>
 <span class="pl-s1">       <span class="pl-c1">echo</span> <span class="pl-smi">$element</span><span class="pl-k">-&gt;</span><span class="pl-smi">href</span> <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;br&gt;<span class="pl-pds">'</span></span>;</span>
 <span class="pl-s1">       <span class="pl-c1">echo</span> <span class="pl-smi">$element</span><span class="pl-k">-&gt;</span>getAttr(<span class="pl-s"><span class="pl-pds">'</span>href<span class="pl-pds">'</span></span>) <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;br&gt;<span class="pl-pds">'</span></span>;</span>
 <span class="pl-s1">}</span></pre></div>
+
+<p>Find all anchors, returns a array of element objects</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$ret</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>Find (N)th anchor, returns element object or null if not found (zero based)</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$ret</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-c1">0</span>);</span></pre></div>
+
+<p>Find lastest anchor, returns element object or null if not found (zero based)</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$ret</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>, <span class="pl-k">-</span><span class="pl-c1">1</span>); </span></pre></div>
+
+<p>Find all </p><div> with the id attribute
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$ret</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>div[id]<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>Find all </p>
+<div> which attribute id=foo
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$ret</span> <span class="pl-k">=</span> <span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>div[id=foo]<span class="pl-pds">'</span></span>);</span></pre></div>
 
 <h3>
 <a id="how-to-dump-contents-of-dom-object" class="anchor" href="#how-to-dump-contents-of-dom-object" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to dump contents of DOM object?</h3>
@@ -77,6 +98,8 @@
 <p>Dumps the internal DOM tree back into a file</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$html_dom</span><span class="pl-k">-&gt;</span>save(<span class="pl-s"><span class="pl-pds">'</span>result.htm<span class="pl-pds">'</span></span>);</span></pre></div>
+</div>
+</div>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/shinbonlin">shinbonlin</a></p>

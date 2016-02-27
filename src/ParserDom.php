@@ -26,7 +26,7 @@ class ParserDom {
 	 * @param \DOMNode|string $node
 	 * @throws \Exception
 	 */
-	public function __construct($node = null) {
+	public function __construct($node = null, $tidy = false) {
 		if ($node !== null) {
 			if ($node instanceof \DOMNode) {
 				$this->node = $node;
@@ -34,6 +34,14 @@ class ParserDom {
 				$dom = new \DOMDocument();
 				$dom->preserveWhiteSpace = false;
 				$dom->strictErrorChecking = false;
+
+				if ($tidy == true) {
+					if (!class_exists('tidy')) {
+						throw new \Exception('Need to enable PHP extension php_tidy.dll to use Tidy library, please check your php.ini or install php5-tidy.');
+					} else {
+						$node = $this->cleanHTML($node);
+					}
+				}
 				if (@$dom->loadHTML($node)) {
 					$this->node = $dom;
 				} else {
@@ -282,7 +290,17 @@ class ParserDom {
 			}
 		}
 	}
-
+	/**
+	 * Clean up the HTML source code
+	 *
+	 * @param string &$html
+	 * @return string
+	 */
+	private function cleanHTML($html)
+	{
+		$tidy = new Tidy();
+		return $tidy->repairString($html);
+	}
 	/**
 	 * 获取html的元属值
 	 *

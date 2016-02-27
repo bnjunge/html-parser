@@ -215,11 +215,6 @@ class ParserDom {
 		}
 	}
 
-	/**
-	 * 获取outerHtml
-	 * @param string $value
-	 * @return string|bool
-	 */
 	public function outerHtml($value = null) {
 		if ($value == null) {
 			if ( !is_null($value) ) {
@@ -247,14 +242,33 @@ class ParserDom {
 							$parentNode->replaceChild($f, $parentNode->childNodes->item($x));
 						}
 					} else {
+
 						// $value is probably ill-formed
 						// 自定义的容器有html标签语法上的错误
 						$f = new \DOMDocument();
 						$value = mb_convert_encoding($value, 'HTML-ENTITIES', 'UTF-8');
-						$result = @$f->loadHTML($value);
+						$result = @$f->loadHTML('<htmlfragment>'.$value.'</htmlfragment>');
 						if ($result) {
-							$this->strip_html_container($f);
-							$import = $f->documentElement;
+							$import = $f->getElementsByTagName('htmlfragment')->item(0);
+							for ($x = $this->node->childNodes->length-1; $x >= 0; $x--) {
+								$this->node->removeChild($this->node->childNodes->item($x));
+							}
+							foreach ($import->childNodes as $child) {
+								$importedNode = $this->node->ownerDocument->importNode($child, true);
+								$this->node->appendChild($importedNode);
+							}
+						} else {
+							// empty element.
+						}
+
+						/*
+						 *  no idea to remove custom tag: <htmlfragment>
+						 *
+						$f = new \DOMDocument();
+						$value = mb_convert_encoding($value, 'HTML-ENTITIES', 'UTF-8');
+						$result = @$f->loadHTML('<htmlfragment>'.$value.'</htmlfragment>');
+						if ($result) {
+							$import = $f->getElementsByTagName('htmlfragment')->item(0);
 							$importedNode = $this->node->ownerDocument->importNode($import, true);
 							if ($parentNode->hasChildNodes()) {
 								$parentNode->replaceChild($importedNode, $parentNode->childNodes->item($x));
@@ -262,12 +276,12 @@ class ParserDom {
 						} else {
 							// empty element.
 						}
+						*/
 					}
 				}
 			}
 		}
 	}
-
 
 	/**
 	 * 获取html的元属值

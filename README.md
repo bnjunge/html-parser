@@ -19,6 +19,7 @@ if you use Namespace
 $html_dom = new \HtmlParser\ParserDom($html);
 
 // the second parameter set "true" to use Tidy for cleaning up HTML source.
+// Need to enable PHP extension php_tidy.dll to use Tidy library, please check your php.ini or install php5-tidy.
 $html_dom = new \HtmlParser\ParserDom($html, true); 
 ```
 

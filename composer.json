@@ -1,13 +1,11 @@
 {
-	"name": "bupt1987/html-parser",
+	"name": "shinbonlin/html-parser",
 	"license": "MIT",
 	"description": "Html Parser",
-	"homepage": "https://github.com/bupt1987/html-parser",
+	"homepage": "https://github.com/shinbonlin/html-parser",
 	"authors": [
 		{
-			"name": "俊杰jerry",
-			"email": "bupt1987@gmail.com",
-			"homepage": "http://bupt1987.github.io",
+			"name": "Shinbon Lin",
 			"role": "Developer"
 		}
 	],

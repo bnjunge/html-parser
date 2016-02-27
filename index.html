@@ -37,7 +37,10 @@
 
 <p>if you use Namespace</p>
 
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$html_dom</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\HtmlParser\</span><span class="pl-c1">ParserDom</span>(<span class="pl-smi">$html</span>);</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$html_dom</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\HtmlParser\</span><span class="pl-c1">ParserDom</span>(<span class="pl-smi">$html</span>);</span>
+<span class="pl-s1"><span class="pl-c">// the second parameter set "true" to use Tidy for cleaning up HTML source.</span></span>
+<span class="pl-s1"><span class="pl-c">// Need to enable PHP extension php_tidy.dll to use Tidy library, please check your php.ini or install php5-tidy.</span></span>
+<span class="pl-s1"><span class="pl-smi">$html_dom</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\HtmlParser\</span><span class="pl-c1">ParserDom</span>(<span class="pl-smi">$html</span>, <span class="pl-c1">true</span>);</span></pre></div>
 
 <p>If you comment out the Namespace in line:2</p>
 

@@ -254,19 +254,19 @@
 <h2>
 <a id="more-examples" class="anchor" href="#more-examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>More Examples</h2>
 
-<p>Get a attribute ( If the attribute is non-value attribute (eg. checked, selected...), it will returns true or false)</p>
+<p>Get an attribute ( If the attribute is non-value attribute (eg. checked, selected...), it will returns true or false)</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$value</span> <span class="pl-k">=</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">href</span>;</span></pre></div>
 
-<p>Set a attribute(If the attribute is non-value attribute (eg. checked, selected...), set it's value as true or false)</p>
+<p>Set an attribute(If the attribute is non-value attribute (eg. checked, selected...), set it's value as true or false)</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">href</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>my link<span class="pl-pds">'</span></span>;</span></pre></div>
 
-<p>Remove a attribute, set it's value as null! </p>
+<p>Remove an attribute, set it's value as null! </p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">href</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>;</span></pre></div>
 
-<p>Determine whether a attribute exist? </p>
+<p>Determine whether an attribute exist? </p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">if</span> (<span class="pl-c1">isset</span>(<span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">href</span>)) <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>href exist!<span class="pl-pds">'</span></span>;</span></pre></div>
 
@@ -274,19 +274,19 @@
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$html</span><span class="pl-k">-&gt;</span><span class="pl-smi">plaintext</span>;</span></pre></div>
 
-<p>Wrap a element</p>
+<p>Wrap an element</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">outertext</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;div class="wrap"&gt;<span class="pl-pds">'</span></span> <span class="pl-k">.</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">outertext</span> <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;div&gt;<span class="pl-pds">'</span></span>;</span></pre></div>
 
-<p>Remove a element, set it's outertext as an empty string </p>
+<p>Remove an element, set it's outertext as an empty string </p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">outertext</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>;</span></pre></div>
 
-<p>Append a element</p>
+<p>Append an element</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">outertext</span> <span class="pl-k">=</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">outertext</span> <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;div&gt;foo&lt;div&gt;<span class="pl-pds">'</span></span>;</span></pre></div>
 
-<p>Insert a element</p>
+<p>Insert an element</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">outertext</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;div&gt;foo&lt;div&gt;<span class="pl-pds">'</span></span> <span class="pl-k">.</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span><span class="pl-smi">outertext</span>;</span></pre></div>
 

@@ -197,22 +197,22 @@ Except outertext, innertext and plaintext, you can use $e->attribute_name to rea
 
 ## More Examples
 
-Get a attribute ( If the attribute is non-value attribute (eg. checked, selected...), it will returns true or false)
+Get an attribute ( If the attribute is non-value attribute (eg. checked, selected...), it will returns true or false)
 ```php
 $value = $e->href;
 ```
 
-Set a attribute(If the attribute is non-value attribute (eg. checked, selected...), set it's value as true or false)
+Set an attribute(If the attribute is non-value attribute (eg. checked, selected...), set it's value as true or false)
 ```php
 $e->href = 'my link';
 ```
 
-Remove a attribute, set it's value as null! 
+Remove an attribute, set it's value as null! 
 ```php
 $e->href = null;
 ```
 
-Determine whether a attribute exist? 
+Determine whether an attribute exist? 
 ```php
 if (isset($e->href)) echo 'href exist!';
 ```
@@ -222,22 +222,22 @@ Extract contents from HTML
 echo $html->plaintext;
 ```
 
-Wrap a element
+Wrap an element
 ```php
 $e->outertext = '<div class="wrap">' . $e->outertext . '<div>';
 ```
 
-Remove a element, set it's outertext as an empty string 
+Remove an element, set it's outertext as an empty string 
 ```php
 $e->outertext = '';
 ```
 
-Append a element
+Append an element
 ```php
 $e->outertext = $e->outertext . '<div>foo<div>';
 ```
 
-Insert a element
+Insert an element
 ```php
 $e->outertext = '<div>foo<div>' . $e->outertext;
 ```

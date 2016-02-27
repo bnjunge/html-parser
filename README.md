@@ -17,6 +17,9 @@ test this library! <a href="https://github.com/shinbonlin">PHP DOM HTML Parser</
 if you use Namespace
 ```php
 $html_dom = new \HtmlParser\ParserDom($html);
+
+// the second parameter set "true" to use Tidy for cleaning up HTML source.
+$html_dom = new \HtmlParser\ParserDom($html, true); 
 ```
 
 If you comment out the Namespace in line:2
